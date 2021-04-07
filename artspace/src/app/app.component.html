@@ -1,0 +1,19 @@
+<body> 
+    <header>
+        <a class="logo" routerLink="/home">ArtSpace</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a routerLink="/home">Home</a></li>
+                <li><a routerLink="/categories">Categories</a></li>
+                <li><a routerLink="/about">About</a></li>
+            </ul>
+        </nav>
+        <div class="signing">
+            <a href=""><button class="signup">Sign up</button></a>
+            <a href="#"><button class="signin">Sign in</button></a>
+        </div>
+    </header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </body>
