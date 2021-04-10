@@ -1,0 +1,19 @@
+<div *ngIf="user">
+    <img class="banner" src="https://cdn.wallpapersafari.com/36/73/rYWnpm.jpg" alt="banner">
+    <div class="profile">
+        <img class="pfp" src={{user.photo}} alt={{user.name}}>
+        <div class="nameandID">
+            <h2>{{user.name}}</h2>
+            <span class="userID">#{{user.id}}</span>
+        </div>
+        <div class="sublinks">
+            <a routerLink="/{{user.name}}">Main</a>
+            <a routerLink="/{{user.name}}/follows">Follows</a>
+            <a routerLink="/{{user.name}}/albums">Gallery</a>
+            <a routerLink="/{{user.name}}/settings">Settings</a>
+        </div>
+    </div>
+    <div class="subcontent">
+        <router-outlet></router-outlet>
+    </div>
+</div>
