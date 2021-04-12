@@ -1,0 +1,60 @@
+<div class="add_pin_modal">
+    <div class="add_pin_container">
+
+        <div class="side" id="left_side">
+            <div class="section1">
+                <div class="pin_mock_icon_container">
+                    <img class="pin_mock_icon" src="https://uxwing.com/wp-content/themes/uxwing/download/01-user_interface/close.png" alt="close">
+                </div>
+            </div>
+    
+            <div class="section2">
+                <label *ngIf="!isSelected" for="upload_img" id="upload_img_label">
+                    <div class="upload_img_container">
+                        <div id="dotted_border">
+                            <div class="pin_mock_icon_container">
+                                <img class="pin_mock_icon" src="https://icons-for-free.com/iconfiles/png/512/box+document+outline+share+top+upload+icon-1320195323221671611.png" alt="upload">
+                            </div>
+                            <div>Click to upload</div>
+                            <div>Recommendation: Use high-quality .jpeg files less than 20MB</div>
+                        </div>
+                    </div>
+                    <input (change)="onFileSelected($event)" type="file" name="upload_img" id="upload_img">
+                </label>
+
+                <div *ngIf="isSelected" class="modals_pin">
+                    <div class="pin_image" (click)="isSelected=false">
+                        <img src="{{selectedFile}}" alt="pin_image">
+                    </div>
+                </div>
+            </div>
+    
+            <div  class="section3">
+                <div class="save_from_site">Save From Site</div>
+            </div>
+        </div>
+
+        <div class="side" id="right_side">
+            <div class="section1">
+                <div class="select_size">
+                    <select name="pin_size" id="pin_size">
+                        <option value="" disabled selected>Select</option>
+                        <option value="small">small</option>
+                        <option value="medium">medium</option>
+                        <option value="large">large</option>
+                    </select>
+                    <div class="save_pin">Save</div>
+                </div>
+            </div>
+    
+            <div class="section2">
+                <input placeholder="Add your title" type="text" class="new_pin_input" id="pin_title">
+                <input placeholder="Tell everyone what your Pin is about" type="text" class="new_pin_input" id="pin_description">
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

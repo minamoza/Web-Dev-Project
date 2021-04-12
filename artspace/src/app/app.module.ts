@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { AboutComponent } from './components/about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddpinComponent } from './components/addpin/addpin.component';
+import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     CategoriesComponent,
-    AboutComponent
+    AboutComponent,
+    AddpinComponent,
+    UploadPinComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'home', component: HomeComponent},
       {path: 'categories', component: CategoriesComponent},
       {path: 'about', component: AboutComponent},
+      {path: 'add', component: UploadPinComponent},
+      
       {path: '', redirectTo: 'home', pathMatch: 'full'},
     ]),
     BrowserAnimationsModule
