@@ -1,21 +1,47 @@
+.userMain {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    background-color: inherit;
+}
+
 .profile {
     padding: 0px 15%;
+    background-color: rgb(235, 235, 235);
 }
 
 .banner {
     width: 100%;
-    height: 10em;
+    min-height: 176px;
+    max-height: 400px;
+}
+
+.nobanner {
+    height: 300px;
+    border: none;
+}
+
+.userInfo {
+    position: relative;
+    top: -45px;
+    background-color: transparent;
+}
+
+.photoandFollows {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
 }
 
 .pfp {
-    position: relative;
-    top: -45px;
     width: 12%;
     border: 0.5px solid black;
     border-radius: 50%;
 }
 
-h2, a {
+h2, a, p, button {
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -29,12 +55,40 @@ h2 {
     font-size: 1.5em;
 }
 
+.userFollowers {
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: -30px;
+}
+
+.followers {
+    color: gray;
+}
+
+.follow {
+    margin-left: 10px;
+    padding: 9px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.follow:hover {
+    background-color: rgba(41, 187, 137, 0.6);
+}
+
 .userID {
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 200;
     font-size: 16px;
     color: gray;
     text-decoration: none;
+}
+
+.userDesc {
+    padding-top: 0.5em;
 }
 
 .sublinks {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { UserService } from '../../user.service';
 
 import { User } from '../../user';
-
 
 @Component({
   selector: 'app-user',
@@ -10,27 +10,22 @@ import { User } from '../../user';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user: User;
+  user!: User;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
-  ) { 
-    //this is just for testing, I didn't create actual user database and user service because
-    //I expect us to do that when we start working on backend - Shayakhmet
-    this.user = {
-      id: 1,
-      photo: "https://yt3.ggpht.com/ytc/AAUvwniOmzeSbOblg-nQOLNXwi2YuKSCBh34Ytj_ZPWYnQ=s900-c-k-c0x00ffffff-no-rj",
-      name: "myUser",
-      password: "myPassword"
-    }
-   }
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    // this.user$ = this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap) =>
-    //     this.userService.getUser(params.get('name')))
-    // );
+    this.getUser();
+  }
+
+  getUser(): void {
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    this.userService.getUser(id)
+      .subscribe(user => this.user = user);
   }
 
 }
