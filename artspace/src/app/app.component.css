@@ -1,7 +1,9 @@
-
-
 header {
     box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+}
+
+* {
+    background-color: inherit;
 }
 
 .logo {
@@ -46,6 +48,7 @@ header {
 
 .nav-links {
     list-style: none;
+    margin: 0;
 }
 
 .nav-links li {
@@ -64,7 +67,7 @@ header {
     border-radius: 10px;
 }
 
-.signup{
+.signup, .submit{
     padding: 9px 20px;
     border: none;
     border-radius: 8px;
@@ -72,7 +75,7 @@ header {
     transition: all 0.3s ease 0s;
 }
 
-.signin {
+.signin, .closebutton, .logout {
     padding: 9px 20px;
     background-color: rgb(230, 0, 35);
     border: none;
@@ -82,12 +85,20 @@ header {
     margin-left: 5px;
 }
 
-.signup:hover {
+.signup:hover, .submit:hover {
     background-color: rgba(41, 187, 137, 0.6);
 }
 
-.signin:hover {
+.signin:hover, .closebutton:hover, .logout:hover {
     background-color: rgba(255, 0, 35, 0.8);
+}
+
+.modal {
+    background-color: rgba(255,255,255, 0.5);
+}
+
+.modal-dialog {
+    background-color: white;
 }
 
 .content {
