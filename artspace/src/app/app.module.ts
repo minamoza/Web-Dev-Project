@@ -4,8 +4,7 @@ import{ FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/categories/categories.component';
@@ -26,16 +25,8 @@ import { UploadPinComponent } from './components/upload-pin/upload-pin.component
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    MatGridListModule,
-    RouterModule.forRoot([
-      {path: 'home', component: HomeComponent},
-      {path: 'categories', component: CategoriesComponent},
-      {path: 'about', component: AboutComponent},
-      {path: 'add', component: UploadPinComponent},
-
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
-    ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
