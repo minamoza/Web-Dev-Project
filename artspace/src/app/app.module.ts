@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import{ FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { AboutComponent } from './components/about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddpinComponent } from './components/addpin/addpin.component';
 import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
 
 
@@ -20,11 +20,11 @@ import { UploadPinComponent } from './components/upload-pin/upload-pin.component
     HomeComponent,
     CategoriesComponent,
     AboutComponent,
-    AddpinComponent,
     UploadPinComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MatGridListModule,
     RouterModule.forRoot([
@@ -32,7 +32,7 @@ import { UploadPinComponent } from './components/upload-pin/upload-pin.component
       {path: 'categories', component: CategoriesComponent},
       {path: 'about', component: AboutComponent},
       {path: 'add', component: UploadPinComponent},
-      
+
       {path: '', redirectTo: 'home', pathMatch: 'full'},
     ]),
     BrowserAnimationsModule
