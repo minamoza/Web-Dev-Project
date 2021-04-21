@@ -13,6 +13,7 @@ import { AboutComponent } from './components/about/about.component';
 import { UserComponent } from './components/user/user.component';
 import { FollowsComponent } from './components/follows/follows.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
 import { AuthInterceptor } from './AuthInterceptor';
 
 //I moved routes to app-routing.module.ts - Shayakhmet
@@ -25,7 +26,8 @@ import { AuthInterceptor } from './AuthInterceptor';
     AboutComponent,
     UserComponent,
     FollowsComponent,
-    SettingsComponent
+    SettingsComponent,
+    UploadPinComponent
   ],
   imports: [
     BrowserModule,
