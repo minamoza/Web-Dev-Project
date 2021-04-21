@@ -3,14 +3,15 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-import { User } from './user';
+import { AuthToken, User } from './user';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  userUrl = 'https://jsonplaceholder.typicode.com/users';
+  userUrl = 'http://127.0.0.1:8000/api/users';
+  baseUrl = 'http://127.0.0.1:8000';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -39,5 +40,20 @@ export class UserService {
       .pipe(
         catchError(this.handleError)
       );
+  }
+
+  updateUser(user: User): Observable<User> {
+    const url = `${this.userUrl}/${user.id}`
+    return this.http.put<User>(url, user, this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  login(username: string, password: string): Observable<AuthToken> {
+    return this.http.post<AuthToken>(`${this.baseUrl}/api/login/`, {
+      username,
+      password
+    });
   }
 }
