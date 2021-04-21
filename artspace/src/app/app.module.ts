@@ -4,31 +4,53 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HomeComponent } from './components/home/home.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { AboutComponent } from './components/about/about.component';
+import { UserComponent } from './components/user/user.component';
+import { FollowsComponent } from './components/follows/follows.component';
 import { AlbumsComponent } from './albums/albums.component';
 // import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { AlbumPhotosComponent } from './album-photos/album-photos.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { SettingsComponent } from './components/settings/settings.component';
+import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
+import { AuthInterceptor } from './AuthInterceptor';
+
+//I moved routes to app-routing.module.ts - Shayakhmet
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
     AlbumsComponent,
     // AlbumDetailComponent,
     AlbumPhotosComponent,
+    CategoriesComponent,
+    AboutComponent,
+    UserComponent,
+    FollowsComponent,
+    SettingsComponent,
+    UploadPinComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
