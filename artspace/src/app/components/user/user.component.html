@@ -13,6 +13,9 @@
                 <div class="userFollowers">
                     <p class="followers"><strong>{{user.followers}}</strong> Following</p>
                     <a><button class="follow">Follow</button></a>
+                    <div class="newAlbum">
+                      <button (click)="openModal(template)">Add Album</button>
+                    </div>
                 </div>
             </div>
             <div class="nameandID">
@@ -33,3 +36,17 @@
         <router-outlet></router-outlet>
     </div>
 </div>
+
+<ng-template #template>
+  <div class="modal-bg">
+    <div class="modal">
+      <h4>New Album</h4>
+      <p>Please fill in the following field to create a new album for your pins</p>
+      <input type="text" placeholder="Title" id="input">
+      <div class="buttons">
+        <button class="add-button" (click)="addAlbum()">Add New Album</button>
+        <button class="close" (click)="modalRef.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

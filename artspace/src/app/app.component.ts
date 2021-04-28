@@ -1,6 +1,9 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './user.service';
+import { TokenInfo } from './models';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +11,12 @@ import { UserService } from './user.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  title = 'Lab6';
-=======
 export class AppComponent implements OnInit {
   title = 'artspace';
 
   logged = false;
   submitted = false;
+  tokenInfo!: TokenInfo;
 
   showModalLogin!: boolean;
   loginForm!: FormGroup;
@@ -40,8 +41,8 @@ export class AppComponent implements OnInit {
     }
 
     this.loginForm = this.formBuilder.group({
-        username: ['', [Validators.required, Validators.minLength(1)]],
-        password: ['', [Validators.required, Validators.minLength(6)]]
+      username: ['', [Validators.required, Validators.minLength(1)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -50,7 +51,7 @@ export class AppComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.invalid) {
-        return;
+      return;
     }
     if(this.submitted)
     {
@@ -67,6 +68,11 @@ export class AppComponent implements OnInit {
       this.logged = false;
       localStorage.removeItem('token');
     }
+  }
+
+  getMyProfile() {
+    this.tokenInfo = jwt_decode( localStorage.getItem('token')! );
+    return `/${this.tokenInfo.user_id}`;
   }
 
 }
