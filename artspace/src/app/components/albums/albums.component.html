@@ -1,0 +1,22 @@
+<div class="album">
+
+  <div class="albumList">
+    <ul *ngIf="loaded">
+      <li *ngFor="let album of albums;" class="listOfAlbums" routerLink="/1/albums/{{album.id}}/photos">
+        <div class="box1"><img src="https://picsum.photos/id/1/5616/3744" class="image"></div>
+        <div class="box2"><img src="https://picsum.photos/id/10/2500/1667" class="image"></div>
+        <div class="box3"><img src="https://picsum.photos/id/100/2500/1656" class="image"></div>
+        <div class="box4"><img src="https://picsum.photos/id/1000/5626/3635" class="image"></div>
+        <div class="box5"><img src="https://picsum.photos/id/1001/5616/3744" class="image"></div>
+        <div class="box6"><img src="https://picsum.photos/id/1002/4312/2868" class="image"></div>
+        <div class="box">{{album.title}}</div>
+      </li>
+    </ul>
+  </div>
+
+  <p *ngIf='!loaded'>Loading album list...</p>
+</div>
+
+
+
+
