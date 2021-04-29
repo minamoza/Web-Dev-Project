@@ -23,7 +23,6 @@ const routes: Routes = [
     {path: 'albums', component: AlbumsComponent},
     // {path: 'albums/:id', component: AlbumDetailComponent},
     {path: 'albums/:id/photos', component: AlbumPhotosComponent},
-      // {path: 'albums/:album_id/photos/:photo_id', component: AlbumPhotosComponent},
     {path: 'settings', component: SettingsComponent }
   ]},
   {path: '', redirectTo: 'home', pathMatch: 'full'}

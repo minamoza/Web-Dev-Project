@@ -14,7 +14,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 export class UserComponent implements OnInit {
   user!: User;
   modalRef!: BsModalRef;
-  newAlbum!: number;
+  newAlbum!: any;
   albums!: Album[];
   album!: Album;
 
@@ -34,21 +34,6 @@ export class UserComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
-  }
-
-  public openModal(template: TemplateRef<any>): void{
-    this.modalRef = this.modalService.show(template);
-  }
-
-  addAlbum(): void {
-    // @ts-ignore
-    const album = {title: document.getElementById('input').value};
-    // @ts-ignore
-    // tslint:disable-next-line:no-shadowed-variable
-    this.albumsService.addAlbum(album as Album).subscribe((album) => {
-      this.albums.unshift(album);
-    });
-    this.modalRef.hide();
   }
 
 }

@@ -12,10 +12,10 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 export class AlbumsComponent implements OnInit {
   user!: User;
   albums!: Album[];
-  album!: Album;
   albumId!: number;
   photos!: Photo[];
   loaded!: boolean;
+  album!: Album;
   newAlbum: number;
   modalRef!: BsModalRef;
 
@@ -51,7 +51,17 @@ export class AlbumsComponent implements OnInit {
       console.log('deleted', id);
     });
   }
-
+  addAlbum(): void {
+    console.log(this.album);
+    // @ts-ignore
+    this.album.title = document.getElementById('input').value;
+    this.albumsService.addAlbum(this.album).subscribe();
+    location.reload();
+    this.modalRef.hide();
+  }
+  public openModal(template: TemplateRef<any>): void{
+    this.modalRef = this.modalService.show(template);
+  }
 
 }
 
